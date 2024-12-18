@@ -1,0 +1,29 @@
+name: caddy-gael
+version: "v2.9.0-beta.3"
+base: core24
+summary: Caddy - Every site on HTTPS
+description: Caddy is an extensible server platform that uses TLS by default
+
+grade: stable
+confinement: strict
+
+platforms:
+  amd64:
+
+license: "Apache-2.0"
+
+apps:
+  caddy:
+    command: usr/bin/caddy run --config $SNAP_DATA/Caddyfile
+    reload-command: usr/bin/caddy reload --config $SNAP_DATA/Caddyfile
+    stop-command: usr/bin/caddy stop
+    daemon: simple
+    plugs:
+      - network
+      - network-bind
+
+parts:
+  app:
+    plugin: dump
+    source: https://github.com/caddyserver/caddy/releases/download/v2.9.0-beta.3/caddy_2.9.0-beta.3_linux_amd64.deb
+    source-type: deb
