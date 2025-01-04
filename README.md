@@ -1,23 +1,37 @@
+_This is NOT an original piece of work, just a snap of caddy_
+
+Caddy - Every site on HTTPS
+Caddy is an extensible server platform that uses TLS by default
+
+**First-time users**
+
+* Read the doc at https://caddyserver.com/docs/
+
+* Configure the server
+
 `sudo vi /var/snap/caddy-gael/current/Caddyfile`
 
 ```
 {
         # Global options block
-        admin off
-        email gael.legoff@gmail.com
+        email mail@example.com
 }
 
-# What's on public site
-whatson.legoff.be {
-        # Enable automatic HTTPS with Let's Encrypt
-        tls gael.legoff@gmail.com
-
+# File server
+fileserver.example.com {
         # Define the root directory for your site
-        root * /var/snap/caddy-gael/common/whatson.legoff.be/www/html
+        root * /var/snap/caddy-gael/common/fileserver.example.com/www/html
 
         # Enable file server
-        file_server
+	encode zstd gzip
+        file_server browse
 }
 ```
 
+* Restart the server
+
 `sudo snap restart caddy-gael.caddy`
+
+**2025-01-04**
+* v2.9.0 available on amd64
+
