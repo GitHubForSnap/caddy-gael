@@ -1,5 +1,5 @@
 name: caddy-gael
-version: "v2.10.0"
+version: "v2.10.1"
 base: core24
 summary: Caddy - Every site on HTTPS
 description: Caddy is an extensible server platform that uses TLS by default
@@ -25,5 +25,5 @@ apps:
 parts:
   app:
     plugin: dump
-    source: https://github.com/caddyserver/caddy/releases/download/v2.10.0/caddy_2.10.0_linux_amd64.deb
+    source: https://github.com/caddyserver/caddy/releases/download/v2.10.1/caddy_2.10.1_linux_amd64.deb
     source-type: deb
